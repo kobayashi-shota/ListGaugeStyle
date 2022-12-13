@@ -8,14 +8,109 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var currentValue: Double = 50
+    @State var firstColor: Color = .white
+    @State var secondColor: Color = .gray
+    @State var thirdColor: Color = .black
+    
+    let range: ClosedRange<Double> = 0...100
+    let gaugeText: String = "°C"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            List {
+                Section {
+                    VStack {
+                        Text("automatic")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.automatic)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                    }
+                } header: {
+                    Text("Automatic")
+                }
+                
+                Section {
+                    VStack {
+                        Text("accessoryCircular")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.accessoryCircular)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                    }
+                    
+                    VStack {
+                        Text("accessoryCircularCapacity")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.accessoryCircularCapacity)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                    }
+                } header: {
+                    Text("Circular")
+                }
+                
+                Section {
+                    Gauge(value: currentValue, in: range) {
+                        Text(gaugeText)
+                    } currentValueLabel: {
+                        Text("\(currentValue)")
+                    }
+                    .gaugeStyle(.accessoryLinear)
+                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                    
+                    Gauge(value: currentValue, in: range) {
+                        Text(gaugeText)
+                    } currentValueLabel: {
+                        Text("\(currentValue)")
+                    }
+                    .gaugeStyle(.accessoryLinearCapacity)
+                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                    
+                    Gauge(value: currentValue, in: range) {
+                        Text(gaugeText)
+                    } currentValueLabel: {
+                        Text("\(currentValue)")
+                    }
+                    .gaugeStyle(.linearCapacity)
+                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
+                } header: {
+                    Text("Linear")
+                }
+            }
+            
+            VStack {
+                Slider(value: $currentValue, in: range)
+                    .tint(.gray)
+                
+                HStack{
+                    ColorPicker("１色目", selection: $firstColor)
+                    
+                    ColorPicker("２色目", selection: $secondColor)
+                    
+                    ColorPicker("３色目", selection: $thirdColor)
+                }
+            }
         }
-        .padding()
     }
 }
 
