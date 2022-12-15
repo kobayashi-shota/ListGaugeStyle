@@ -20,7 +20,7 @@ struct ContentView: View {
         VStack {
             List {
                 Section {
-                    VStack {
+                    HStack {
                         Text("automatic")
                         
                         Spacer()
@@ -38,9 +38,9 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    VStack {
+                    HStack {
                         Text("accessoryCircular")
-                        
+
                         Spacer()
                         
                         Gauge(value: currentValue, in: range) {
@@ -52,9 +52,9 @@ struct ContentView: View {
                         .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
                     
-                    VStack {
+                    HStack {
                         Text("accessoryCircularCapacity")
-                        
+
                         Spacer()
                         
                         Gauge(value: currentValue, in: range) {
@@ -70,29 +70,47 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Gauge(value: currentValue, in: range) {
-                        Text(gaugeText)
-                    } currentValueLabel: {
-                        Text("\(currentValue)")
+                    VStack{
+                        Text("accessoryLinear")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.accessoryLinear)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    .gaugeStyle(.accessoryLinear)
-                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     
-                    Gauge(value: currentValue, in: range) {
-                        Text(gaugeText)
-                    } currentValueLabel: {
-                        Text("\(currentValue)")
+                    VStack {
+                        Text("accessoryLinearCapacity")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.accessoryLinearCapacity)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    .gaugeStyle(.accessoryLinearCapacity)
-                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     
-                    Gauge(value: currentValue, in: range) {
-                        Text(gaugeText)
-                    } currentValueLabel: {
-                        Text("\(currentValue)")
+                    VStack{
+                        Text("linearCapacity")
+                        
+                        Spacer()
+                        
+                        Gauge(value: currentValue, in: range) {
+                            Text(gaugeText)
+                        } currentValueLabel: {
+                            Text("\(currentValue)")
+                        }
+                        .gaugeStyle(.linearCapacity)
+                        .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    .gaugeStyle(.linearCapacity)
-                    .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                 } header: {
                     Text("Linear")
                 }
@@ -108,8 +126,8 @@ struct ContentView: View {
                     ColorPicker("２色目", selection: $secondColor)
                     
                     ColorPicker("３色目", selection: $thirdColor)
-                }
-            }
+                }.padding()
+            }.padding()
         }
     }
 }
