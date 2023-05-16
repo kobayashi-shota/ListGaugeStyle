@@ -25,7 +25,7 @@ jobs:
       - name: Cache Mint
         uses: actions/cache@v3
         with:
-          path: mint
+          path: .mint
           key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
           restore-keys: |
             ${{ runner.os }}-mint-
