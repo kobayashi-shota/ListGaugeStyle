@@ -30,8 +30,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-mint-
 
-      - name: Install xcbeautify
-        run: mint install xcbeautify
+      - name: Mint Bootstrap
+        run: mint bootstrap
 
       - name: build
         run: xcodebuild -sdk iphonesimulator -configuration Debug build | xcbeautify
