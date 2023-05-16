@@ -20,6 +20,9 @@ jobs:
     - name: xcode-select
       run: sudo xcode-select -s '/Applications/Xcode_14.3.app'
       
+    - name: Install xcbeautify
+      run: brew install xcbeautify
+      
     - name: build
-      run: xcodebuild -sdk iphonesimulator -configuration Debug build 
+      run: xcodebuild -sdk iphonesimulator -configuration Debug build | xcbeautify
           
