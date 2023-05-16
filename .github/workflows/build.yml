@@ -36,11 +36,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-mint-
               
+      - name: Install Mint
+        run: brew install mint
+
       - if: ${{ steps.cache-mint.outputs.cache-hit != 'true' }}
         name: Install Mint Packages
-        run: |
-          brew install mint
-          mint bootstrap 
+        run: mint bootstrap 
 
       - name: List of mint packages
         continue-on-error: true
