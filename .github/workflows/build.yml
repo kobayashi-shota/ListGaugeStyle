@@ -29,7 +29,10 @@ jobs:
           key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
           restore-keys: |
             ${{ runner.os }}-mint-
-
+              
+      - name: Install Mint
+        run: brew install mint
+              
       - name: Mint Bootstrap
         run: mint bootstrap
 
