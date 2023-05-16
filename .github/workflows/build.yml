@@ -21,6 +21,9 @@ jobs:
 
       - name: xcode-select
         run: sudo xcode-select -s '/Applications/Xcode_14.3.app'
+        
+      - name: Show Xcode list
+        run: ls /Applications | grep 'Xcode'
 
       - name: Cache Mint
         uses: actions/cache@v3
