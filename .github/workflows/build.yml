@@ -5,24 +5,33 @@ name: Swift
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: macos-13
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: xcode-select
-      run: sudo xcode-select -s '/Applications/Xcode_14.3.app'
-      
-    - name: Install xcbeautify
-      run: brew install xcbeautify
-      
-    - name: build
-      run: xcodebuild -sdk iphonesimulator -configuration Debug build | xcbeautify
-          
+      - uses: actions/checkout@v3
+
+      - name: xcode-select
+        run: sudo xcode-select -s '/Applications/Xcode_14.3.app'
+
+      - name: Cache Mint
+        env:
+          MINT_PATH: .mint/lib
+          MINT_LINK_PATH: .mint/bin
+        uses: actions/cache@v3
+        with:
+          path: .mint
+          key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+          restore-keys: |
+            ${{ runner.os }}-mint-
+
+      - name: Install xcbeautify
+        run: mint install xcbeautify
+
+      - name: build
+        run: xcodebuild -sdk iphonesimulator -configuration Debug build | xcbeautify
