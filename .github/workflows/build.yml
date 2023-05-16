@@ -28,12 +28,18 @@ jobs:
         run: ls /Applications | grep 'Xcode'
 
       - name: Cache Mint
+        id: cache-mint
         uses: actions/cache@v3
         with:
           path: .mint
           key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
           restore-keys: |
             ${{ runner.os }}-mint-
+      
+      - if: ${{ steps.cache-mint.outputs.cache-hit != 'true' }}
+        name: List of mint packages
+        continue-on-error: true
+        run: mint list
               
       - name: Install Mint
         run: brew install mint
