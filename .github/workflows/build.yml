@@ -48,4 +48,4 @@ jobs:
         run: mint list
 
       - name: Build
-        run: xcodebuild build -sdk iphonesimulator -configuration Debug | mint run xcbeautify
+        run: xcodebuild build -sdk iphonesimulator -configuration Release | mint run xcbeautify
