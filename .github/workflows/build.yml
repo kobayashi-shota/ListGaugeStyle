@@ -48,8 +48,4 @@ jobs:
         run: mint list
 
       - name: Build
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.4'
-          bundler-cache: true
-      - run: bundle exec fastlane ios build_release
+        run: xcodebuild build -sdk iphonesimulator -configuration Debug | mint run xcbeautify
