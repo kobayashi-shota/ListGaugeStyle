@@ -27,6 +27,7 @@ platform :ios do
       skip_package_ipa: true,
       skip_package_pkg: true,
       xcodebuild_formatter: 'mint run xcbeautify',
+      xcargs: "-allowProvisioningUpdates",
     )
   end
 
