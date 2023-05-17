@@ -23,6 +23,7 @@ platform :ios do
     build_app(
       clean: true,
       configuration: options[:configuration],
+      skip_archive: true,
       skip_package_ipa: true,
       skip_package_pkg: true,
       xcodebuild_formatter: xcbeautify,
