@@ -23,11 +23,14 @@ jobs:
         run: |
           sudo xcode-select -s '/Applications/Xcode_14.3.app'
           xcodebuild -version
-        
+
       - name: Show Xcode list
         run: ls /Applications | grep 'Xcode'
 
-      - name: Cache Mint
+      - name: Install Mint
+        run: brew install mint
+
+      - name: Cache Mint Packages
         id: cache-mint
         uses: actions/cache@v3
         with:
@@ -35,13 +38,10 @@ jobs:
           key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
           restore-keys: |
             ${{ runner.os }}-mint-
-              
-      - name: Install Mint
-        run: brew install mint
 
-      - if: ${{ steps.cache-mint.outputs.cache-hit != 'true' }}
+      - if: ${{ steps.cache-mint.outputs.cache-hit == 'false' }}
         name: Install Mint Packages
-        run: mint bootstrap 
+        run: mint bootstrap
 
       - name: List of mint packages
         continue-on-error: true
