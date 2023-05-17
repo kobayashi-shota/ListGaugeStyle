@@ -40,7 +40,7 @@ platform :ios do
   lane :build_release do |options|
     create_keychain(
       name: "mykeychain",
-      password: ENV[KEYCHAIN_PASSWORD],
+      password: ENV["KEYCHAIN_PASSWORD"],
       timeout: 1800
     )
 
@@ -48,7 +48,7 @@ platform :ios do
       certificate_path: "build_certificate.p12",
       certificate_password: ENV["CERTIFICATE_PASSWORD"],
       keychain_name: "mykeychain",
-      keychain_password: ENV[KEYCHAIN_PASSWORD]
+      keychain_password: ENV["KEYCHAIN_PASSWORD"]
     )
 
     build(configuration: "Release")
