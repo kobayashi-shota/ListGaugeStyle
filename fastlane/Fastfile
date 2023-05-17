@@ -33,11 +33,17 @@ platform :ios do
 
   lane :build_debug do
     setup_ci
+    update_code_signing_settings(
+      use_automatic_signing: true,
+    )
     build(configuration: "Debug")
   end
 
   lane :build_release do
     setup_ci
+    update_code_signing_settings(
+      use_automatic_signing: true,
+    )
     build(configuration: "Release")
   end
 end
