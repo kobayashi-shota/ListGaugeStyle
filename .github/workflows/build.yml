@@ -47,5 +47,9 @@ jobs:
         continue-on-error: true
         run: mint list
 
-      - name: build
-        run: xcodebuild -sdk iphonesimulator -configuration Debug build | mint run xcbeautify
+      - name: Build
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.4'
+          bundler-cache: true
+      - run: bundle exec fastlane ios build_debug
