@@ -25,6 +25,7 @@ platform :ios do
       configuration: options[:configuration],
       skip_package_ipa: true,
       skip_package_pkg: true,
+      xcodebuild_formatter: xcbeautify,
     )
   end
 
