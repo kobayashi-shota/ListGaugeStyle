@@ -47,5 +47,19 @@ jobs:
         continue-on-error: true
         run: mint list
 
+      - name: Decode Certificate
+        run: |
+          echo "${{ secrets.CERTIFICATE_DEVELOPMENT }}" > certificate.p12.txt
+          base64 --decode certificate.p12.txt > certificate.p12
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.4'
+          bundler-cache: true
+      
       - name: Build
-        run: xcodebuild build -sdk iphonesimulator -configuration Release | mint run xcbeautify
+        env:
+          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: bundle exec fastlane ios build_release
