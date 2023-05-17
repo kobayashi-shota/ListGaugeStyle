@@ -29,10 +29,12 @@ platform :ios do
   end
 
   lane :build_debug do
+    setup_ci
     build(configuration: "Debug")
   end
 
   lane :build_release do
+    setup_ci
     build(configuration: "Release")
   end
 end
