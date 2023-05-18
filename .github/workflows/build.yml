@@ -59,7 +59,7 @@ jobs:
         run: |
           # import certificate from secrets
           echo -n "$BUILD_CERTIFICATE_BASE64" >  build_certificate.p12.text
-          base64 --decode build_certificate.p12.txt > build_certificate.p12
+          base64 --decode -i build_certificate.p12.txt > build_certificate.p12
 
       - name: Build
         env:
