@@ -79,6 +79,7 @@
 				C4C9A40F2946F7F500313F46 /* Sources */,
 				C4C9A4102946F7F500313F46 /* Frameworks */,
 				C4C9A4112946F7F500313F46 /* Resources */,
+				C485E3F02A18654E004C3D7F /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -133,6 +134,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C485E3F02A18654E004C3D7F /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/opt/homebrew/bin:$PATH\n\nif which mint >/dev/null; then\n    xcrun --sdk macosx mint run swiftlint lint --fix --format\n    xcrun --sdk macosx mint run swiftlint lint\nelse \n    echo 'Warning: mint not installed.'\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C4C9A40F2946F7F500313F46 /* Sources */ = {
