@@ -70,7 +70,7 @@ struct ContentView: View {
                 }
 
                 Section {
-                    VStack{
+                    VStack {
                         Text("accessoryLinear")
 
                         Spacer()
@@ -97,8 +97,8 @@ struct ContentView: View {
                         .gaugeStyle(.accessoryLinearCapacity)
                         .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    
-                    VStack{
+
+                    VStack {
                         Text("linearCapacity")
 
                         Spacer()
@@ -119,8 +119,8 @@ struct ContentView: View {
             VStack {
                 Slider(value: $currentValue, in: range)
                     .tint(.gray)
-                
-                HStack{
+
+                HStack {
                     ColorPicker("１色目", selection: $firstColor)
 
                     ColorPicker("２色目", selection: $secondColor)
