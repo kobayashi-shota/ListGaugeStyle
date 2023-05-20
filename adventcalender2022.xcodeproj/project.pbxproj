@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4C9A4172946F7F500313F46 /* adventcalender2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C9A4162946F7F500313F46 /* adventcalender2022App.swift */; };
+		C4C9A4172946F7F500313F46 /* Adventcalender2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C9A4162946F7F500313F46 /* Adventcalender2022App.swift */; };
 		C4C9A4192946F7F500313F46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C9A4182946F7F500313F46 /* ContentView.swift */; };
 		C4C9A41B2946F7F700313F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C9A41A2946F7F700313F46 /* Assets.xcassets */; };
 		C4C9A41F2946F7F700313F46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C9A41E2946F7F700313F46 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		C4C9A4132946F7F500313F46 /* adventcalender2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adventcalender2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4C9A4162946F7F500313F46 /* adventcalender2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adventcalender2022App.swift; sourceTree = "<group>"; };
+		C4C9A4162946F7F500313F46 /* Adventcalender2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adventcalender2022App.swift; sourceTree = "<group>"; };
 		C4C9A4182946F7F500313F46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C4C9A41A2946F7F700313F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4C9A41C2946F7F700313F46 /* adventcalender2022.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = adventcalender2022.entitlements; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		C4C9A4152946F7F500313F46 /* adventcalender2022 */ = {
 			isa = PBXGroup;
 			children = (
-				C4C9A4162946F7F500313F46 /* adventcalender2022App.swift */,
+				C4C9A4162946F7F500313F46 /* Adventcalender2022App.swift */,
 				C4C9A4182946F7F500313F46 /* ContentView.swift */,
 				C4C9A41A2946F7F700313F46 /* Assets.xcassets */,
 				C4C9A41C2946F7F700313F46 /* adventcalender2022.entitlements */,
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4C9A4192946F7F500313F46 /* ContentView.swift in Sources */,
-				C4C9A4172946F7F500313F46 /* adventcalender2022App.swift in Sources */,
+				C4C9A4172946F7F500313F46 /* Adventcalender2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
