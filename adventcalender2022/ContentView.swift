@@ -12,19 +12,19 @@ struct ContentView: View {
     @State var firstColor: Color = .white
     @State var secondColor: Color = .gray
     @State var thirdColor: Color = .black
-    
+
     let range: ClosedRange<Double> = 0...100
     let gaugeText: String = "°C"
-    
+
     var body: some View {
         VStack {
             List {
                 Section {
                     HStack {
                         Text("automatic")
-                        
+
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -36,13 +36,13 @@ struct ContentView: View {
                 } header: {
                     Text("Automatic")
                 }
-                
+
                 Section {
                     HStack {
                         Text("accessoryCircular")
 
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -51,12 +51,12 @@ struct ContentView: View {
                         .gaugeStyle(.accessoryCircular)
                         .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    
+
                     HStack {
                         Text("accessoryCircularCapacity")
 
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -68,13 +68,13 @@ struct ContentView: View {
                 } header: {
                     Text("Circular")
                 }
-                
+
                 Section {
                     VStack{
                         Text("accessoryLinear")
-                        
+
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -83,12 +83,12 @@ struct ContentView: View {
                         .gaugeStyle(.accessoryLinear)
                         .tint(Gradient(colors: [firstColor, secondColor, thirdColor]))
                     }
-                    
+
                     VStack {
                         Text("accessoryLinearCapacity")
-                        
+
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -100,9 +100,9 @@ struct ContentView: View {
                     
                     VStack{
                         Text("linearCapacity")
-                        
+
                         Spacer()
-                        
+
                         Gauge(value: currentValue, in: range) {
                             Text(gaugeText)
                         } currentValueLabel: {
@@ -115,16 +115,16 @@ struct ContentView: View {
                     Text("Linear")
                 }
             }
-            
+
             VStack {
                 Slider(value: $currentValue, in: range)
                     .tint(.gray)
                 
                 HStack{
                     ColorPicker("１色目", selection: $firstColor)
-                    
+
                     ColorPicker("２色目", selection: $secondColor)
-                    
+
                     ColorPicker("３色目", selection: $thirdColor)
                 }.padding()
             }.padding()
