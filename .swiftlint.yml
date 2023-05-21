@@ -6,3 +6,4 @@ excluded:
   - .*/Assets.xcassets
   - .*.json
   - .*.md
+  - vendor
