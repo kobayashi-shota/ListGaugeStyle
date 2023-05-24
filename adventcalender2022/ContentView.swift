@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var secondColor: Color = .gray
     @State var thirdColor: Color = .black
 
-    let range: ClosedRange<Double> = 0...100
+    let range: ClosedRange<Double> = 0 ... 100
     let gaugeText: String = "°C"
 
     var body: some View {
